@@ -1,0 +1,11 @@
+﻿@model LastTodoApp.Domain.Entities.Task
+
+<h1>Delete Confirmation</h1>
+<p>Are you sure you want to delete the following task?</p>
+
+
+<form asp-action="DeleteConfirmed" asp-controller="Task" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" asp-controller="Task" class="btn btn-secondary">Cancel</a>
+</form>

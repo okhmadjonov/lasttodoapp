@@ -1,0 +1,17 @@
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.DataContext\bin\Debug\net7.0\LastTodoApp.DataContext.deps.json
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.DataContext\bin\Debug\net7.0\LastTodoApp.DataContext.runtimeconfig.json
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.DataContext\bin\Debug\net7.0\LastTodoApp.DataContext.dll
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.DataContext\bin\Debug\net7.0\LastTodoApp.DataContext.pdb
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.DataContext\bin\Debug\net7.0\LastTodoApp.Domain.dll
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.DataContext\bin\Debug\net7.0\LastTodoApp.Domain.pdb
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.DataContext\obj\Debug\net7.0\LastTodoApp.DataContext.csproj.AssemblyReference.cache
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.DataContext\obj\Debug\net7.0\LastTodoApp.DataContext.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.DataContext\obj\Debug\net7.0\LastTodoApp.DataContext.AssemblyInfoInputs.cache
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.DataContext\obj\Debug\net7.0\LastTodoApp.DataContext.AssemblyInfo.cs
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.DataContext\obj\Debug\net7.0\LastTodoApp.DataContext.csproj.CoreCompileInputs.cache
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.DataContext\obj\Debug\net7.0\LastTodoApp.DataContext.csproj.CopyComplete
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.DataContext\obj\Debug\net7.0\LastTodoApp.DataContext.dll
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.DataContext\obj\Debug\net7.0\refint\LastTodoApp.DataContext.dll
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.DataContext\obj\Debug\net7.0\LastTodoApp.DataContext.pdb
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.DataContext\obj\Debug\net7.0\LastTodoApp.DataContext.genruntimeconfig.cache
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.DataContext\obj\Debug\net7.0\ref\LastTodoApp.DataContext.dll

@@ -1,0 +1,80 @@
+﻿@using NonFactors.Mvc.Grid
+@model IEnumerable<LastTodoApp.Domain.Entities.Task>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Include your CSS and other head elements here -->
+    <link href="~/css/mvc-grid/mvc-grid.css" rel="stylesheet">
+    <link href="~/css/task.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center mt-3">Task Control App</h1>
+
+                <div style="display:flex;flex-direction:row;gap:20px;align-items:center">
+                    @if (User.Identity != null && User.Identity.IsAuthenticated && (User.IsInRole("MANAGER") || User.IsInRole("ADMIN")))
+                    {
+                        <div class="add__btn-div">
+                            <a style="padding:8px 50px; text-decoration:none" asp-controller="Task" asp-action="Add" class="btn btn-info">Add Task</a>
+                        </div>
+                    }
+
+                    @if (User.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("ADMIN"))
+                    {
+                        <div style="margin:10px">
+                            <a style="padding:8px 50px; text-decoration:none" class="btn btn-success" asp-action="AddUserIndex" asp-controller="Account">Add User</a>
+                        </div>
+                        <div style="margin:10px">
+                            <a style="padding:8px 50px; text-decoration:none" class="btn btn-danger" asp-action="Index" asp-controller="Audit">Audit</a>
+                        </div>
+                    }
+                </div>
+                <br />
+                @*<div class="form-group">
+                    <input type="text" name="username" value="" class="form-control" placeholder="Enter username ..." />
+                </div>*@
+
+                <br />
+                <br />
+
+                <!-- Your existing code for displaying tasks grid -->
+                @if (Model != null && Model.Any())
+                {
+                    @(Html.Grid(Model).Build(columns =>
+                    {
+                        columns.Add(model => model.Id).Titled("Id").Filterable(false).Sortable(false);
+                        columns.Add(model => model.Title).Titled("Title").Filterable(false).Sortable(false);
+                        columns.Add(model => model.Description).Titled("Description").Filterable(false).Sortable(false);
+                        columns.Add(model => model.DueDate).Titled("DueDate").Filterable(false).Sortable(false);
+                        columns.Add(model => model.Status).Titled("Status").Filterable(false).Sortable(false);
+
+                        // Actions column for Admins
+                        if (User.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("ADMIN"))
+                        {
+                            columns.Add().Titled("Actions").RenderedAs(model =>
+                            {
+                                var editUrl = Url.Action("Edit", new { id = model.Id });
+                                var deleteUrl = Url.Action("Delete", new { id = model.Id });
+
+                                return $"<a href='{editUrl}' class='btn btn-warning'>Update</a> <a href='{deleteUrl}' class='btn btn-danger'>Delete</a>";
+                            }).Encoded(false);
+                        }
+                    }).Sortable().Pageable())
+                }
+                else
+                {
+                    <p style="font-size:26px; color:darkred">No tasks available.</p>
+                }
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/mvc-grid/mvc-grid.js"></script>
+</body>
+</html>

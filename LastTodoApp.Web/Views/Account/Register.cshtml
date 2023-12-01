@@ -1,0 +1,60 @@
+﻿@model LastTodoApp.Domain.Entities.RegisterViewModel.RegisterViewModel
+@{
+    Layout = null;
+}
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/login.css" />
+</head>
+
+<div class="container">
+
+
+    <div class="wrapper">
+        <div class="title"> <i class="fa fa-user"></i></div>
+        <form asp-controller="Account" asp-action="Register" method="post" enctype="multipart/form-data">
+            @if (ViewBag.Success != null)
+            {
+                <div class="col-md-12 btn btn-danger" style="color:green;">
+                    <span>@ViewBag.Success</span>
+                </div>
+            }
+            @if (TempData["Error"] != null)
+            {
+                <div class="col-md-12 btn btn-danger" style="color:red;">
+                    <span><b>Sorry!</b> - @TempData["Error"] </span>
+                </div>
+            }
+            <div class="row">
+                <i class="fa fa-user"></i>
+                <input asp-for="Username" type="text" name="Username" autocomplete="off" placeholder="Username">
+            </div>
+            <div class="row">
+                <i class="fa fa-envelope"></i>
+                <input asp-for="Email" type="email" name="Email" autocomplete="off" placeholder="Email">
+            </div>
+            <div class="row">
+                <i class="fa fa-lock"></i>
+                <input asp-for="Password" type="password" name="Password" autocomplete="off" placeholder="Password">
+            </div>
+            <div class="row">
+                <i class="fa fa-lock"></i>
+                <input asp-for="ConfirmPassword" type="password" name="ConfirmPassword" autocomplete="off" placeholder="Confirm Password">
+            </div>
+
+            <div class="row button">
+                <input asp-controller="Account" asp-action="Register" type="submit" value="Sign up">
+            </div>
+            <div class="signup-link">Are you member? <a asp-controller="Account" asp-action="Login">Log in now</a></div>
+        </form>
+    </div>
+</div>
+
+@if (ViewBag.Success != null)
+{
+    <script>
+        setTimeout(function () {
+            window.location.href = '@Url.Action("Login", "Account")';
+        }, 3000); // 5000 milliseconds = 5 seconds
+    </script>
+}

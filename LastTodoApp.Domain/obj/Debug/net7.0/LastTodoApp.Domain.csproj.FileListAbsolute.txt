@@ -1,0 +1,14 @@
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.Domain\bin\Debug\net7.0\LastTodoApp.Domain.deps.json
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.Domain\bin\Debug\net7.0\LastTodoApp.Domain.runtimeconfig.json
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.Domain\bin\Debug\net7.0\LastTodoApp.Domain.dll
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.Domain\bin\Debug\net7.0\LastTodoApp.Domain.pdb
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.Domain\obj\Debug\net7.0\LastTodoApp.Domain.csproj.AssemblyReference.cache
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.Domain\obj\Debug\net7.0\LastTodoApp.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.Domain\obj\Debug\net7.0\LastTodoApp.Domain.AssemblyInfoInputs.cache
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.Domain\obj\Debug\net7.0\LastTodoApp.Domain.AssemblyInfo.cs
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.Domain\obj\Debug\net7.0\LastTodoApp.Domain.csproj.CoreCompileInputs.cache
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.Domain\obj\Debug\net7.0\LastTodoApp.Domain.dll
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.Domain\obj\Debug\net7.0\refint\LastTodoApp.Domain.dll
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.Domain\obj\Debug\net7.0\LastTodoApp.Domain.pdb
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.Domain\obj\Debug\net7.0\LastTodoApp.Domain.genruntimeconfig.cache
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.Domain\obj\Debug\net7.0\ref\LastTodoApp.Domain.dll

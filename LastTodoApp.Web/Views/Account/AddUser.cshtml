@@ -1,0 +1,57 @@
+﻿
+@{
+ViewData["Title"] = "Add User";
+}
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+<form id="add-form" action="@Url.Action("AddUser", "Account")" method="post">
+    <div id="modalAdd">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5 text-success" id="exampleModalLabel">Add User</h1>
+           
+        </div>
+        <div class="modal-body">
+            @if (ViewBag.Success != null)
+            {
+                <div class="col-md-12 btn btn-success" style="color:white;">
+                    <span>@ViewBag.Success</span>
+                </div>
+            }
+            @if (TempData["Error"] != null)
+            {
+                <p class="col-md-12 btn btn-danger" style="color:white;">
+                    <span id="errorSpan"><b>Sorry!</b> - @TempData["Error"]</span>
+                </p>
+            }
+            <label for="username">Username</label>
+            <input name="Username" id="username" type="text" class="form-control " required autocomplete="off" />
+            <label for="email">Email</label>
+            <input name="Email" id="email" type="email" class="form-control w-100 px-3" required autocomplete="off" />
+            <label for="password">Password</label>
+            <input type="password" id="password" name="Password" class="form-control " required autocomplete="off" />
+            <label for="confirmPassword">ConfirmPassword</label>
+            <input type="password" id="confirmPassword" name="ConfirmPassword" class="form-control " required autocomplete="off" />
+            <label for="role">Role</label>
+            <select id="role" name="Role" class="form-control w-100 px-3" required>
+                <option value="">Select role</option>
+               
+                <option value="Manager">Manager</option>
+                <option value="User">User</option>
+            </select>
+            <div class="moda-footer mt-2">
+                <button type="submit" class="btn btn-success">Add</button>
+                <a asp-action="Index" asp-controller="Task" class="btn btn-secondary">Cancel</a>
+            </div>
+        </div>
+    </div>
+</form>
+@if (ViewBag.Success != null)
+{
+    <script>
+        setTimeout(function () {
+            window.location.href = '@Url.Action("Index", "Task")';
+        }, 3000);
+    </script>
+}
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

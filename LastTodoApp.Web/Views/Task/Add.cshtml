@@ -1,0 +1,60 @@
+﻿
+
+
+@model LastTodoApp.Domain.Entities.Task
+
+@{
+    ViewData["title"] = "Add Page";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center mt-3">Add Task</h1>
+            <br />
+            <form asp-action="Add" asp-controller="Task" method="post">
+              
+                <input type="hidden" asp-for="Id" />
+
+                <!-- Title field -->
+                <div class="form-group">
+                    <label asp-for="Title" class="control-label">Title:</label>
+                    <input asp-for="Title" name="Title" class="form-control" required />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+
+                <!-- Description field -->
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label">Description:</label>
+                    <textarea asp-for="Description" name="Description" class="form-control" required></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <!-- DueDate field -->
+                <div class="form-group">
+                    <label asp-for="DueDate" class="control-label">Due Date:</label>
+                    <input asp-for="DueDate" type="datetime-local" name="DueDate" class="form-control" required />
+                    <span asp-validation-for="DueDate" class="text-danger"></span>
+                </div>
+
+                <!-- Status field -->
+                <div class="form-group">
+                    <label asp-for="Status" class="control-label">Status:</label>
+                    <select asp-for="Status" class="form-control" required>
+                        <option value="Started">Started</option>
+                        <option value="Progress">Progress</option>
+                        <option value="Finished">Finished</option>
+                    </select>
+                    <span asp-validation-for="Status" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Add Task</button>
+                    <a asp-action="Index" asp-controller="Task" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
