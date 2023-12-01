@@ -1,8 +1,10 @@
 ﻿using LastTodoApp.Web.Repositories.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LastTodoApp.Web.Controllers
 {
+   
     public class AuditController : Controller
     {
         private readonly AuditService _auditService;

@@ -55,3 +55,4 @@ C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.Web\obj\Debug\net7.0\LastTodoApp.W
 C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.Web\obj\Debug\net7.0\LastTodoApp.Web.genruntimeconfig.cache
 C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.Web\obj\Debug\net7.0\ref\LastTodoApp.Web.dll
 C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.Web\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.Web\obj\Debug\net7.0\LastTodoApp.Web.sourcelink.json

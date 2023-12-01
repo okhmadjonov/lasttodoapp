@@ -856,6 +856,12 @@
           "Microsoft.AspNetCore.App"
         ]
       },
+      "NonFactors.Grid.Mvc6/7.0.0": {
+        "type": "package",
+        "dependencies": {
+          "NonFactors.Grid.Core.Mvc6": "[7.0.0]"
+        }
+      },
       "Npgsql/7.0.0": {
         "type": "package",
         "dependencies": {
@@ -1155,7 +1161,7 @@
           "Microsoft.EntityFrameworkCore": "7.0.0",
           "Microsoft.Extensions.Identity.Core": "7.0.0",
           "Newtonsoft.Json": "13.0.3",
-          "NonFactors.Grid.Core.Mvc6": "7.0.0",
+          "NonFactors.Grid.Mvc6": "7.0.0",
           "Swashbuckle.AspNetCore.Annotations": "6.5.0",
           "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0",
           "Swashbuckle.AspNetCore.SwaggerUI": "6.5.0"
@@ -2229,6 +2235,22 @@
         "nonfactors.grid.core.mvc6.nuspec"
       ]
     },
+    "NonFactors.Grid.Mvc6/7.0.0": {
+      "sha512": "6ymyUKu/7emJVY1SdGHfPRahJTGjN03Uw5IPwF5IEY11KAx6eHwwWc06fzSEbtgPZ7qru1IQOuh1Fjy+mYIPhw==",
+      "type": "package",
+      "path": "nonfactors.grid.mvc6/7.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/Views/Shared/MvcGrid/_Grid.cshtml",
+        "content/Views/Shared/MvcGrid/_Pager.cshtml",
+        "content/css/mvc-grid/fonts/grid-glyphs.woff",
+        "content/css/mvc-grid/mvc-grid.css",
+        "content/js/mvc-grid/mvc-grid.js",
+        "nonfactors.grid.mvc6.7.0.0.nupkg.sha512",
+        "nonfactors.grid.mvc6.nuspec"
+      ]
+    },
     "Npgsql/7.0.0": {
       "sha512": "tOBFksJZ2MiEz8xtDUgS5IG19jVO3nSP15QDYWiiGpXHe0PsLoQBts2Sg3hHKrrLTuw+AjsJz9iKvvGNHyKDIg==",
       "type": "package",
@@ -2792,7 +2814,7 @@
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.0",
       "Microsoft.Extensions.Identity.Core >= 7.0.0",
       "Newtonsoft.Json >= 13.0.3",
-      "NonFactors.Grid.Core.Mvc6 >= 7.0.0",
+      "NonFactors.Grid.Mvc6 >= 7.0.0",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 7.0.0",
       "Swashbuckle.AspNetCore.Annotations >= 6.5.0",
       "Swashbuckle.AspNetCore.SwaggerGen >= 6.5.0",
@@ -2878,7 +2900,7 @@
             "target": "Package",
             "version": "[13.0.3, )"
           },
-          "NonFactors.Grid.Core.Mvc6": {
+          "NonFactors.Grid.Mvc6": {
             "target": "Package",
             "version": "[7.0.0, )"
           },

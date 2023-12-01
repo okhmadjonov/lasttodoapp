@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LastTodoApp.DataContext.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231130100337_ForAudit")]
-    partial class ForAudit
+    [Migration("20231201093034_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -184,19 +184,19 @@ namespace LastTodoApp.DataContext.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "7290d69b-1807-4cbe-9c05-3f8cc7e1b82b",
+                            Id = "768ef4c0-33a5-4142-98e6-50a129d76056",
                             Name = "ADMIN",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "53561cec-321d-42fe-92d1-a79eff07ee00",
+                            Id = "561a6c4a-7322-4eeb-b486-5e9296245d66",
                             Name = "MANAGER",
                             NormalizedName = "MANAGER"
                         },
                         new
                         {
-                            Id = "2bf12c3d-05aa-41dc-9fc2-ac6d0b4a219f",
+                            Id = "f7b2e364-777d-4f32-9ae8-09f0bd97f0d6",
                             Name = "USER",
                             NormalizedName = "USER"
                         });

@@ -4,9 +4,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using LastTodoApp.Web.Repositories;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LastTodoApp.Web.Controllers
 {
+  
     [Route("api/[controller]")]
     [ApiController]
     public class TaskApiController : ControllerBase

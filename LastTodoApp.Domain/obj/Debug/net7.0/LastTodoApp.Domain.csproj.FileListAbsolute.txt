@@ -12,3 +12,4 @@ C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.Domain\obj\Debug\net7.0\refint\Las
 C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.Domain\obj\Debug\net7.0\LastTodoApp.Domain.pdb
 C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.Domain\obj\Debug\net7.0\LastTodoApp.Domain.genruntimeconfig.cache
 C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.Domain\obj\Debug\net7.0\ref\LastTodoApp.Domain.dll
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.Domain\obj\Debug\net7.0\LastTodoApp.Domain.sourcelink.json

@@ -2,11 +2,14 @@
 using LastTodoApp.Domain.Entities;
 using LastTodoApp.Domain.Entities.LoginViewModel;
 using LastTodoApp.Domain.Entities.RegisterViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LastTodoApp.Web.Controllers
 {
+
+    
     public class AccountController : Controller
     {
         private readonly AccountService _accountService;
@@ -32,6 +35,7 @@ namespace LastTodoApp.Web.Controllers
         }
 
 
+       
         [HttpPost]
         public async Task<IActionResult>Login(LoginViewModel loginViewModel)
         {
@@ -57,7 +61,6 @@ namespace LastTodoApp.Web.Controllers
 
         
         }
-
 
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel registerViewModel)

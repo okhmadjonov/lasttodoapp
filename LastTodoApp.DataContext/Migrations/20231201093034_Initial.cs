@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LastTodoApp.DataContext.Migrations
 {
     /// <inheritdoc />
-    public partial class ForAudit : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -201,9 +201,9 @@ namespace LastTodoApp.DataContext.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "2bf12c3d-05aa-41dc-9fc2-ac6d0b4a219f", null, "USER", "USER" },
-                    { "53561cec-321d-42fe-92d1-a79eff07ee00", null, "MANAGER", "MANAGER" },
-                    { "7290d69b-1807-4cbe-9c05-3f8cc7e1b82b", null, "ADMIN", "ADMIN" }
+                    { "561a6c4a-7322-4eeb-b486-5e9296245d66", null, "MANAGER", "MANAGER" },
+                    { "768ef4c0-33a5-4142-98e6-50a129d76056", null, "ADMIN", "ADMIN" },
+                    { "f7b2e364-777d-4f32-9ae8-09f0bd97f0d6", null, "USER", "USER" }
                 });
 
             migrationBuilder.CreateIndex(

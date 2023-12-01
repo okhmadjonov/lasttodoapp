@@ -68,7 +68,7 @@
               "target": "Package",
               "version": "[13.0.3, )"
             },
-            "NonFactors.Grid.Core.Mvc6": {
+            "NonFactors.Grid.Mvc6": {
               "target": "Package",
               "version": "[7.0.0, )"
             },

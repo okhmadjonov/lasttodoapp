@@ -9,7 +9,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LastTodoApp.Web.Controllers
 {
-  
+
+
+   
     public class TaskController : Controller
     {
         private readonly UserManager<User> _userManager;
@@ -46,8 +48,8 @@ namespace LastTodoApp.Web.Controllers
             var user = await _userManager.GetUserAsync(User);
             var username = user!.UserName;
             await _taskRepository.Add(taskViewModel, userId!, username!);
-            var tasks =  await _taskRepository.GetAllTasks();
-            return View("Index", tasks);
+            //var tasks =  await _taskRepository.GetAllTasks();
+            return RedirectToAction("Index");
 
         }
 
@@ -71,8 +73,8 @@ namespace LastTodoApp.Web.Controllers
             var user = await _userManager.GetUserAsync(User);
             var username = user!.UserName;
             await _taskRepository.Update(id, taskViewModel, userId!, username!);
-            var tasks = await _taskRepository.GetAllTasks();
-            return View("Index", tasks);
+           
+            return RedirectToAction("Index");
 
         }
 
@@ -98,8 +100,8 @@ namespace LastTodoApp.Web.Controllers
             var user = await _userManager.GetUserAsync(User);
             var username = user!.UserName;
             await _taskRepository.Delete(id, userId!, username!);
-            var tasks = await _taskRepository.GetAllTasks();
-            return View("Index", tasks);
+           
+            return RedirectToAction("Index");
         }
     }
 }

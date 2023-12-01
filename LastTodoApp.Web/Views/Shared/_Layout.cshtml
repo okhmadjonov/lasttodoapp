@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/LastTodoApp.Web.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link href="~/css/mvc-grid/mvc-grid.css" rel="stylesheet">
 
 </head>
 <body>
-   
+
     <div class="container">
         <header>
             <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -41,9 +42,7 @@
                 </div>
             </nav>
         </header>
-    </div>
-   
-    <div class="container">
+
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
@@ -53,6 +52,8 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/mvc-grid/mvc-grid.js"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

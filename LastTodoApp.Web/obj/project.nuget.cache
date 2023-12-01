@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "JmzgSr/rwEY/5jbwltUEwBtagsTUXIV/4uRwyD3BbmG0/nOCpFerGvPCSAUQzbIrjcJl8UAIf4R8tjnlW3jN1A==",
+  "dgSpecHash": "yEeHs6e9DrUfzXZfc0UrvJ4L7Z4rDHBjFgTbk89LfJcXSEDZto+gbkdVAeelnmIBywvqNNdysHNRDffseFnuPQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\nemo\\Desktop\\LastTodoApp\\LastTodoApp.Web\\LastTodoApp.Web.csproj",
   "expectedPackageFiles": [
@@ -53,6 +53,7 @@
     "C:\\Users\\nemo\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\nemo\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\nemo\\.nuget\\packages\\nonfactors.grid.core.mvc6\\7.0.0\\nonfactors.grid.core.mvc6.7.0.0.nupkg.sha512",
+    "C:\\Users\\nemo\\.nuget\\packages\\nonfactors.grid.mvc6\\7.0.0\\nonfactors.grid.mvc6.7.0.0.nupkg.sha512",
     "C:\\Users\\nemo\\.nuget\\packages\\npgsql\\7.0.0\\npgsql.7.0.0.nupkg.sha512",
     "C:\\Users\\nemo\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\7.0.0\\npgsql.entityframeworkcore.postgresql.7.0.0.nupkg.sha512",
     "C:\\Users\\nemo\\.nuget\\packages\\swashbuckle.aspnetcore.annotations\\6.5.0\\swashbuckle.aspnetcore.annotations.6.5.0.nupkg.sha512",

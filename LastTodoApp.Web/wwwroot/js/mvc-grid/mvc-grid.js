@@ -1,7 +1,7 @@
 /*!
  * Mvc.Grid 7.2.0
  *
- * Copyright © NonFactors
+ * Copyright ï¿½ NonFactors
  *
  * Licensed under the terms of the MIT License
  * https://www.opensource.org/licenses/mit-license.php

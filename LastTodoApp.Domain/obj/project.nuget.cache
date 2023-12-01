@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "rWeVvUGF6AfG1Styfj+x14ym5tJBAbgpqbQDnHZaTMI7qm2y1EWYXf5DgC5ME2URARRxkEX69jtxYDissrKTDw==",
+  "dgSpecHash": "id+99vPfsYZ/Xnb4raDNyaIysdeiqw0M+fZ1gsfdSnXY+jvrvx0OESNxAe71CoiKSs+xeOOXnC0uNgLYln4/vw==",
   "success": true,
   "projectFilePath": "C:\\Users\\nemo\\Desktop\\LastTodoApp\\LastTodoApp.Domain\\LastTodoApp.Domain.csproj",
   "expectedPackageFiles": [
@@ -32,6 +32,7 @@
     "C:\\Users\\nemo\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\nemo\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\nemo\\.nuget\\packages\\nonfactors.grid.core.mvc6\\7.0.0\\nonfactors.grid.core.mvc6.7.0.0.nupkg.sha512",
+    "C:\\Users\\nemo\\.nuget\\packages\\nonfactors.grid.mvc6\\7.0.0\\nonfactors.grid.mvc6.7.0.0.nupkg.sha512",
     "C:\\Users\\nemo\\.nuget\\packages\\swashbuckle.aspnetcore.annotations\\6.5.0\\swashbuckle.aspnetcore.annotations.6.5.0.nupkg.sha512",
     "C:\\Users\\nemo\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\nemo\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
