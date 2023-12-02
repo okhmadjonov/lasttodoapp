@@ -1,10 +1,11 @@
-﻿@model IEnumerable<LastTodoApp.Domain.Entities.Task>
+﻿@model X.PagedList.IPagedList<LastTodoApp.Domain.Entities.Task>
+@using X.PagedList.Mvc.Core
+
 
 <!DOCTYPE html>
 <html>
 <head>
     <!-- Include your CSS and other head elements here -->
-
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
 </head>
 <body>
@@ -87,6 +88,38 @@
                             }
                         </tbody>
                     </table>
+                    @*<div class="pagination-container">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchEmail =ViewContext.HttpContext.Request.Query["searchEmail"] }))
+            </div>*@
+
+                    <div class="pagination-container text-center mt-4">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination">
+                                <li class="page-item @(Model.PageNumber == 1 ? "disabled" : "")">
+                                    <a class="page-link" href="@Url.Action("Index", new { page = 1, searchEmail = ViewContext.HttpContext.Request.Query["searchEmail"] })" aria-label="First">
+                                        <span aria-hidden="true">&laquo;&laquo;</span>
+                                    </a>
+                                </li>
+
+                                @for (int i = 1; i <= Model.PageCount; i++)
+                                {
+                                    <li class="page-item @(Model.PageNumber == i ? "active" : "")">
+                                        <a class="page-link" href="@Url.Action("Index", new { page = i, searchEmail = ViewContext.HttpContext.Request.Query["searchEmail"] })">@i</a>
+                                    </li>
+                                }
+
+                                <li class="page-item @(Model.PageNumber == Model.PageCount ? "disabled" : "")">
+                                    <a class="page-link" href="@Url.Action("Index", new { page = Model.PageCount, searchEmail = ViewContext.HttpContext.Request.Query["searchEmail"] })" aria-label="Last">
+                                        <span aria-hidden="true">&raquo;&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+
+
+
                 }
                 else
                 {
@@ -98,10 +131,5 @@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-
-
 </body>
 </html>

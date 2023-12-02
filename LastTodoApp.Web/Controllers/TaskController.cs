@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-
+using X.PagedList;
 namespace LastTodoApp.Web.Controllers
 {
 
@@ -27,19 +27,39 @@ namespace LastTodoApp.Web.Controllers
 
 
         // Get All Task
-        public async Task<ViewResult> Index(string searchEmail)
+        //public async Task<ViewResult> Index(string searchEmail)
+        //{
+
+        //    var tasks = await _taskRepository.GetAllTasks();
+        //    if (!string.IsNullOrEmpty(searchEmail))
+        //    {
+
+        //        tasks = tasks.Where(t => t.User?.Email == searchEmail).ToList();
+        //    }
+
+        //    return View("Index", tasks);
+
+        //}
+
+        public async Task<IActionResult> Index(string searchEmail, int? page)
         {
-           
+            int pageSize = 5; // Number of tasks per page
             var tasks = await _taskRepository.GetAllTasks();
+
             if (!string.IsNullOrEmpty(searchEmail))
             {
-
                 tasks = tasks.Where(t => t.User?.Email == searchEmail).ToList();
             }
 
-            return View("Index", tasks);
-         
+            var pageNumber = page ?? 1;
+            var paginatedTasks = tasks.ToPagedList(pageNumber, pageSize);
+
+            return View(paginatedTasks);
         }
+
+
+
+
 
         [HttpGet]
         public async Task<ViewResult> Add() {
