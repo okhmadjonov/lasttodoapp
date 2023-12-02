@@ -27,10 +27,18 @@ namespace LastTodoApp.Web.Controllers
 
 
         // Get All Task
-        public async Task<ViewResult> Index()
+        public async Task<ViewResult> Index(string searchEmail)
         {
+           
             var tasks = await _taskRepository.GetAllTasks();
+            if (!string.IsNullOrEmpty(searchEmail))
+            {
+
+                tasks = tasks.Where(t => t.User?.Email == searchEmail).ToList();
+            }
+
             return View("Index", tasks);
+         
         }
 
         [HttpGet]
@@ -42,13 +50,21 @@ namespace LastTodoApp.Web.Controllers
 
         //Add New Task
         [HttpPost]
-        public async Task<IActionResult> Add(TaskViewModel taskViewModel) 
+        public async Task<IActionResult> Add(Domain.Entities.Task task, string email) 
         {
+            var user = await _userManager.FindByEmailAsync(email);
+
+            if (user == null)
+            {
+                TempData["Error"] = "User with the specified email does not exist.";
+                return View();
+            }
+
             var userId = _userManager.GetUserId(User);
-            var user = await _userManager.GetUserAsync(User);
-            var username = user!.UserName;
-            await _taskRepository.Add(taskViewModel, userId!, username!);
-            //var tasks =  await _taskRepository.GetAllTasks();
+            var username = user.UserName;
+
+            await _taskRepository.Add(task, userId!, username!, email!);
+
             return RedirectToAction("Index");
 
         }

@@ -9,7 +9,7 @@ namespace LastTodoApp.Domain.Entities.enums
     public enum Status
     {
         Started=0,
-        Progress = 1,
+        Process = 1,
         Finished=2
     }
 }

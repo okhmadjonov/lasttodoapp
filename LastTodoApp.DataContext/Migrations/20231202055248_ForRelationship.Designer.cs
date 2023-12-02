@@ -3,6 +3,7 @@ using System;
 using LastTodoApp.DataContext.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LastTodoApp.DataContext.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231202055248_ForRelationship")]
+    partial class ForRelationship
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -84,13 +87,10 @@ namespace LastTodoApp.DataContext.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Tasks");
                 });
@@ -187,19 +187,19 @@ namespace LastTodoApp.DataContext.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "5d8b8310-68bc-4b26-a309-31fdc666ac6f",
+                            Id = "c61fac34-e89b-49de-ad4e-0070554a4f00",
                             Name = "ADMIN",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "237a0ff0-9d7c-4e0f-9926-89a1cb20f4cb",
+                            Id = "024cfb3d-f3b4-4f98-96db-14be05a4c22b",
                             Name = "MANAGER",
                             NormalizedName = "MANAGER"
                         },
                         new
                         {
-                            Id = "a639cb7e-9711-40c3-975a-b5b7f4f4013a",
+                            Id = "b3b723d6-e9c0-4b76-909e-7467e977e81c",
                             Name = "USER",
                             NormalizedName = "USER"
                         });
@@ -309,17 +309,6 @@ namespace LastTodoApp.DataContext.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
-                });
-
-            modelBuilder.Entity("LastTodoApp.Domain.Entities.Task", b =>
-                {
-                    b.HasOne("LastTodoApp.Domain.Entities.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

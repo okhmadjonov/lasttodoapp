@@ -23,7 +23,7 @@
                 <!-- Description field -->
                 <div class="form-group">
                     <label asp-for="Description" class="control-label">Description:</label>
-                    <textarea asp-for="Description" name="Description" class="form-control" required></textarea>
+                    <input asp-for="Description" name="Description" class="form-control" required />
                     <span asp-validation-for="Description" class="text-danger"></span>
                 </div>
 
@@ -39,7 +39,7 @@
                     <label asp-for="Status" class="control-label">Status:</label>
                     <select asp-for="Status" class="form-control" required>
                         <option value="Started">Started</option>
-                        <option value="Progress">Progress</option>
+                        <option value="Process">Process</option>
                         <option value="Finished">Finished</option>
                     </select>
                     <span asp-validation-for="Status" class="text-danger"></span>

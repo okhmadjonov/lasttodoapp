@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LastTodoApp.DataContext.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231201093034_Initial")]
+    [Migration("20231202054519_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -184,19 +184,19 @@ namespace LastTodoApp.DataContext.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "768ef4c0-33a5-4142-98e6-50a129d76056",
+                            Id = "dbf4a41c-0d16-4b86-b06f-91f61a87a8a7",
                             Name = "ADMIN",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "561a6c4a-7322-4eeb-b486-5e9296245d66",
+                            Id = "ee34f091-2559-4d7b-9093-06172b89ff9f",
                             Name = "MANAGER",
                             NormalizedName = "MANAGER"
                         },
                         new
                         {
-                            Id = "f7b2e364-777d-4f32-9ae8-09f0bd97f0d6",
+                            Id = "5a137b45-3cca-4661-9969-a6a241ed0221",
                             Name = "USER",
                             NormalizedName = "USER"
                         });

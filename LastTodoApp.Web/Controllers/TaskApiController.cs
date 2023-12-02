@@ -30,7 +30,7 @@ namespace LastTodoApp.Web.Controllers
         public async Task<IActionResult> Index(int id) => Ok(await _taskRepository.GetSingleTask(id));
 
         [HttpPost]
-        public async Task<IActionResult> Create(TaskViewModel task)
+        public async Task<IActionResult> Create(Domain.Entities.Task task, string email)
         {
             task.DueDate = DateTime.SpecifyKind(task.DueDate, DateTimeKind.Utc);
 
@@ -42,7 +42,7 @@ namespace LastTodoApp.Web.Controllers
             var userId = _userManager.GetUserId(User);
             var user = await _userManager.GetUserAsync(User);
             var username = user!.UserName;
-            await _taskRepository.Add(task, userId!, username!);
+            await _taskRepository.Add(task, userId!, username!, email!);
             return Ok();
         }
 

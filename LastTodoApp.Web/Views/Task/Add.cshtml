@@ -14,27 +14,32 @@
             <h1 class="text-center mt-3">Add Task</h1>
             <br />
             <form asp-action="Add" asp-controller="Task" method="post">
-              
+                @if (TempData["Error"] != null)
+                {
+                    <p class="col-md-12 btn btn-danger" style="color:white;">
+                        <span id="errorSpan"><b>Sorry!</b> - @TempData["Error"]</span>
+                    </p>
+                }
                 <input type="hidden" asp-for="Id" />
 
                 <!-- Title field -->
                 <div class="form-group">
                     <label asp-for="Title" class="control-label">Title:</label>
-                    <input asp-for="Title" name="Title" class="form-control" required />
+                    <input asp-for="Title" name="Title" class="form-control" autocomplete="off" required />
                     <span asp-validation-for="Title" class="text-danger"></span>
                 </div>
 
                 <!-- Description field -->
                 <div class="form-group">
                     <label asp-for="Description" class="control-label">Description:</label>
-                    <textarea asp-for="Description" name="Description" class="form-control" required></textarea>
+                    <input asp-for="Description" name="Description" class="form-control" autocomplete="off" required />
                     <span asp-validation-for="Description" class="text-danger"></span>
                 </div>
 
                 <!-- DueDate field -->
                 <div class="form-group">
                     <label asp-for="DueDate" class="control-label">Due Date:</label>
-                    <input asp-for="DueDate" type="datetime-local" name="DueDate" class="form-control" required />
+                    <input asp-for="DueDate" type="datetime-local" name="DueDate" class="form-control" autocomplete="off" required />
                     <span asp-validation-for="DueDate" class="text-danger"></span>
                 </div>
 
@@ -43,11 +48,20 @@
                     <label asp-for="Status" class="control-label">Status:</label>
                     <select asp-for="Status" class="form-control" required>
                         <option value="Started">Started</option>
-                        <option value="Progress">Progress</option>
+                        <option value="Process">Process</option>
                         <option value="Finished">Finished</option>
                     </select>
                     <span asp-validation-for="Status" class="text-danger"></span>
                 </div>
+
+                <!-- USer email field -->
+                <div class="form-group">
+                    <label for="User" class="control-label">User's Email:</label>
+                    <input type="Email" name="Email" class="form-control" required autocomplete="off" />
+                    @*<span asp-validation-for="Email" class="text-danger"></span>*@
+                </div>
+
+
                 <br />
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Add Task</button>

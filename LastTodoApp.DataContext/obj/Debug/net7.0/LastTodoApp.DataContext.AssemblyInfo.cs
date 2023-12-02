@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LastTodoApp.DataContext")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+907bcc0b1be7b6779ff76d8cafcf1ccdfe275a0d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8b288d7facdf1b7eab843fe9b0c0826898a9f740")]
 [assembly: System.Reflection.AssemblyProductAttribute("LastTodoApp.DataContext")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LastTodoApp.DataContext")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -10,7 +10,7 @@ namespace LastTodoApp.Web.Repositories
     {
         Task<List<Domain.Entities.Task>> GetAllTasks();
         Task<Domain.Entities.Task> GetSingleTask(int id);
-        Task Add(TaskViewModel taskViewModel, string userId, string username);
+        Task Add(Domain.Entities.Task task, string userId, string username, string email);
         Task Update(int id, TaskViewModel taskViewModel, string userId, string username);
         Task Delete(int id, string userId, string username);
 

@@ -5,17 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LastTodoApp.Domain.Entities
+namespace LastTodoApp.Domain.Dto
 {
-    public class Task
+    public class TaskDto
     {
-        public int Id { get; set; }
+
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime DueDate { get; set; }
+
         public Status Status { get; set; }
 
-        public string UserId { get; set; }
-        public User User { get; set; }
+
     }
 }

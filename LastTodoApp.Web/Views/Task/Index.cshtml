@@ -1,8 +1,4 @@
-﻿@using NonFactors.Mvc.Grid
-@model IEnumerable<LastTodoApp.Domain.Entities.Task>
-
-
-
+﻿@model IEnumerable<LastTodoApp.Domain.Entities.Task>
 
 <!DOCTYPE html>
 <html>
@@ -10,7 +6,6 @@
     <!-- Include your CSS and other head elements here -->
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
-    <link href="~/css/mvc-grid/mvc-grid.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -39,52 +34,72 @@
                 </div>
                 <br />
 
-
+                <div class="row">
+                    <div class="col-md-4">
+                        <form id="searchForm">
+                            <div class="form-group" style="display:flex;">
+                                <input type="text" id="searchEmail" name="searchEmail" autocomplete="off" class="form-control" placeholder="Type user email address here ..." />
+                                <br />
+                                <button type="button" class="btn btn-primary" id="searchButton">Search</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <br />
 
                 @if (Model != null && Model.Any())
                 {
-              
+                    <table class="table" id="tasksTable">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>DueDate</th>
+                                <th>Status</th>
+                                <th>User Email</th>
 
-                    @(Html.Grid(Model).Build(columns =>
-    {
-        columns.Add(model => model.Id).Titled("Id");
-        columns.Add(model => model.Title).Titled("Title");
-        columns.Add(model => model.Description).Titled("Description");
-        columns.Add(model => model.DueDate).Titled("DueDate");
-        columns.Add(model => model.Status).Titled("Status");
+                                @if (User.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("ADMIN"))
+                                {
+                                    <th>Actions</th>
+                                }
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var task in Model)
+                            {
+                                <tr>
+                                    <td>@task.Id</td>
+                                    <td>@task.Title</td>
+                                    <td>@task.Description</td>
+                                    <td>@task.DueDate</td>
+                                    <td>@task.Status</td>
+                                    <td>@task.User?.Email</td>
 
-        // Actions column for Admins
-        if (User.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("ADMIN"))
-        {
-            columns.Add().Titled("Actions").RenderedAs(model =>
-            {
-                  var editUrl = Url.Action("Edit", new { id = model.Id });
-                  var deleteUrl = Url.Action("Delete", new { id = model.Id });
-               
-                  return $"<a href='{editUrl}' class='btn btn-warning'>Update</a> <a href='{deleteUrl}' class='btn btn-danger'>Delete</a>";
-                  }).Encoded(false);
-            }
-         }).Sortable().Pageable())
-
-
-
-
+                                    @if (User.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("ADMIN"))
+                                    {
+                                        <td>
+                                            <a href="@Url.Action("Edit", new { id = task.Id })" class="btn btn-warning">Update</a>
+                                            <a href="@Url.Action("Delete", new { id = task.Id })" class="btn btn-danger">Delete</a>
+                                        </td>
+                                    }
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
                 }
                 else
                 {
                     <p style="font-size:26px; color:darkred">No tasks available.</p>
                 }
-
-
-
-
             </div>
         </div>
     </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/mvc-grid/mvc-grid.js"></script>
+
+
 
 
 

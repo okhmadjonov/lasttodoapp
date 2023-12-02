@@ -201,9 +201,9 @@ namespace LastTodoApp.DataContext.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "561a6c4a-7322-4eeb-b486-5e9296245d66", null, "MANAGER", "MANAGER" },
-                    { "768ef4c0-33a5-4142-98e6-50a129d76056", null, "ADMIN", "ADMIN" },
-                    { "f7b2e364-777d-4f32-9ae8-09f0bd97f0d6", null, "USER", "USER" }
+                    { "5a137b45-3cca-4661-9969-a6a241ed0221", null, "USER", "USER" },
+                    { "dbf4a41c-0d16-4b86-b06f-91f61a87a8a7", null, "ADMIN", "ADMIN" },
+                    { "ee34f091-2559-4d7b-9093-06172b89ff9f", null, "MANAGER", "MANAGER" }
                 });
 
             migrationBuilder.CreateIndex(
