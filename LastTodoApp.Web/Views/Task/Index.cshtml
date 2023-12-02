@@ -39,7 +39,7 @@
                     <div class="col-md-4">
                         <form id="searchForm">
                             <div class="form-group" style="display:flex;">
-                                <input type="text" id="searchEmail" name="searchEmail" autocomplete="off" class="form-control" placeholder="Type user email address here ..." />
+                                <input type="email" id="searchEmail" name="searchEmail" autocomplete="off" class="form-control" placeholder="Type user email address here ..." />
                                 <br />
                                 <button type="button" class="btn btn-primary" id="searchButton">Search</button>
                             </div>
@@ -88,9 +88,7 @@
                             }
                         </tbody>
                     </table>
-                    @*<div class="pagination-container">
-                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchEmail =ViewContext.HttpContext.Request.Query["searchEmail"] }))
-            </div>*@
+              
 
                     <div class="pagination-container text-center mt-4">
                         <nav aria-label="Page navigation">

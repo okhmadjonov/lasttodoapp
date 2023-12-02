@@ -29,6 +29,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\nemo\\Desktop\\LastTodoApp\\LastTodoApp.Web\\wwwroot\\img\\bg.png",
+      "PackagePath": "staticwebassets\\img\\bg.png"
+    },
+    {
+      "Id": "C:\\Users\\nemo\\Desktop\\LastTodoApp\\LastTodoApp.Web\\wwwroot\\img\\time.jpg",
+      "PackagePath": "staticwebassets\\img\\time.jpg"
+    },
+    {
       "Id": "C:\\Users\\nemo\\Desktop\\LastTodoApp\\LastTodoApp.Web\\wwwroot\\js\\audit.js",
       "PackagePath": "staticwebassets\\js\\audit.js"
     },
