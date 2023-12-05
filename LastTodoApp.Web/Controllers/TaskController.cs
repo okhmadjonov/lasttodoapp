@@ -70,9 +70,10 @@ namespace LastTodoApp.Web.Controllers
 
         //Add New Task
         [HttpPost]
+        
         public async Task<IActionResult> Add(Domain.Entities.Task task, string email) 
         {
-            var user = await _userManager.FindByEmailAsync(email);
+            var user = await _userManager.FindByEmailAsync(email!);
 
             if (user == null)
             {
@@ -83,7 +84,7 @@ namespace LastTodoApp.Web.Controllers
             var userId = _userManager.GetUserId(User);
             var username = user.UserName;
 
-            await _taskRepository.Add(task, userId!, username!, email!);
+            await _taskRepository.Add(task, userId!, username!, email);
 
             return RedirectToAction("Index");
 

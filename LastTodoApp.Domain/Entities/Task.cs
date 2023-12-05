@@ -15,7 +15,7 @@ namespace LastTodoApp.Domain.Entities
         public DateTime DueDate { get; set; }
         public Status Status { get; set; }
 
-        public string UserId { get; set; }
-        public User User { get; set; }
+        public string? UserId { get; set; }
+        public User? User { get; set; }
     }
 }

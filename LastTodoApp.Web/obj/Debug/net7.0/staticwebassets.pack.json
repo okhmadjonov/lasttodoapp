@@ -33,8 +33,12 @@
       "PackagePath": "staticwebassets\\img\\bg.png"
     },
     {
-      "Id": "C:\\Users\\nemo\\Desktop\\LastTodoApp\\LastTodoApp.Web\\wwwroot\\img\\time.jpg",
-      "PackagePath": "staticwebassets\\img\\time.jpg"
+      "Id": "C:\\Users\\nemo\\Desktop\\LastTodoApp\\LastTodoApp.Web\\wwwroot\\img\\pg.jpg",
+      "PackagePath": "staticwebassets\\img\\pg.jpg"
+    },
+    {
+      "Id": "C:\\Users\\nemo\\Desktop\\LastTodoApp\\LastTodoApp.Web\\wwwroot\\img\\todo.jpg",
+      "PackagePath": "staticwebassets\\img\\todo.jpg"
     },
     {
       "Id": "C:\\Users\\nemo\\Desktop\\LastTodoApp\\LastTodoApp.Web\\wwwroot\\js\\audit.js",

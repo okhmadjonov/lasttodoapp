@@ -61,3 +61,6 @@ C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.Web\bin\Debug\net7.0\PagedList.dll
 C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.Web\bin\Debug\net7.0\PagedList.Mvc.dll
 C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.Web\bin\Debug\net7.0\X.PagedList.dll
 C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.Web\bin\Debug\net7.0\X.PagedList.Mvc.Core.dll
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.Web\bin\Debug\net7.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.Web\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\nemo\Desktop\LastTodoApp\LastTodoApp.Web\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll

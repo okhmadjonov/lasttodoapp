@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "xgBmQMVWZH+erqgyEclyzsWk54EkgZAXvmh2jijgpIE=",
+  "Hash": "xk5qmpQAdH5fDycxH8NJJHdsHJG63e+BR7Hj4B3zto8=",
   "Source": "LastTodoApp.Web",
   "BasePath": "_content/LastTodoApp.Web",
   "Mode": "Default",
@@ -1328,12 +1328,12 @@
       "OriginalItemSpec": "wwwroot\\img\\bg.png"
     },
     {
-      "Identity": "C:\\Users\\nemo\\Desktop\\LastTodoApp\\LastTodoApp.Web\\wwwroot\\img\\time.jpg",
+      "Identity": "C:\\Users\\nemo\\Desktop\\LastTodoApp\\LastTodoApp.Web\\wwwroot\\img\\pg.jpg",
       "SourceId": "LastTodoApp.Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\nemo\\Desktop\\LastTodoApp\\LastTodoApp.Web\\wwwroot\\",
       "BasePath": "_content/LastTodoApp.Web",
-      "RelativePath": "img/time.jpg",
+      "RelativePath": "img/pg.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1344,7 +1344,26 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\time.jpg"
+      "OriginalItemSpec": "wwwroot\\img\\pg.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\nemo\\Desktop\\LastTodoApp\\LastTodoApp.Web\\wwwroot\\img\\todo.jpg",
+      "SourceId": "LastTodoApp.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\nemo\\Desktop\\LastTodoApp\\LastTodoApp.Web\\wwwroot\\",
+      "BasePath": "_content/LastTodoApp.Web",
+      "RelativePath": "img/todo.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\todo.jpg"
     },
     {
       "Identity": "C:\\Users\\nemo\\Desktop\\LastTodoApp\\LastTodoApp.Web\\wwwroot\\js\\audit.js",
