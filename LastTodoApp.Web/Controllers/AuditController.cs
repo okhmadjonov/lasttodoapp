@@ -4,7 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LastTodoApp.Web.Controllers
 {
-   
+
+    [Authorize(Roles ="ADMIN")]
     public class AuditController : Controller
     {
         private readonly AuditService _auditService;

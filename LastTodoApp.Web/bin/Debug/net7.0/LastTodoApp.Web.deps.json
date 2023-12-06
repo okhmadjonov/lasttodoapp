@@ -21,7 +21,7 @@
           "Newtonsoft.Json": "13.0.3",
           "NonFactors.Grid.Mvc6": "7.0.0",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.0",
-          "PagedList.Mvc": "4.5.0",
+          "PagedList.Mvc": "4.4.0",
           "Swashbuckle.AspNetCore.Annotations": "6.5.0",
           "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0",
           "Swashbuckle.AspNetCore.SwaggerUI": "6.5.0",
@@ -448,14 +448,14 @@
           }
         }
       },
-      "PagedList.Mvc/4.5.0": {
+      "PagedList.Mvc/4.4.0": {
         "dependencies": {
           "PagedList": "1.17.0"
         },
         "runtime": {
           "lib/net40/PagedList.Mvc.dll": {
-            "assemblyVersion": "4.5.0.0",
-            "fileVersion": "4.5.0.0"
+            "assemblyVersion": "4.4.0.0",
+            "fileVersion": "4.4.0.0"
           }
         }
       },
@@ -584,7 +584,7 @@
           "Newtonsoft.Json": "13.0.3",
           "NonFactors.Grid.Mvc6": "7.0.0",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.0",
-          "PagedList.Mvc": "4.5.0",
+          "PagedList.Mvc": "4.4.0",
           "Swashbuckle.AspNetCore.Annotations": "6.5.0",
           "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0",
           "Swashbuckle.AspNetCore.SwaggerUI": "6.5.0",
@@ -602,7 +602,7 @@
           "Microsoft.Extensions.Identity.Core": "7.0.0",
           "Newtonsoft.Json": "13.0.3",
           "NonFactors.Grid.Mvc6": "7.0.0",
-          "PagedList.Mvc": "4.5.0",
+          "PagedList.Mvc": "4.4.0",
           "Swashbuckle.AspNetCore.Annotations": "6.5.0",
           "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0",
           "Swashbuckle.AspNetCore.SwaggerUI": "6.5.0",
@@ -1026,12 +1026,12 @@
       "path": "pagedlist/1.17.0",
       "hashPath": "pagedlist.1.17.0.nupkg.sha512"
     },
-    "PagedList.Mvc/4.5.0": {
+    "PagedList.Mvc/4.4.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-D0M4qW2g4a9cwG8ozIKUnJheCrm5GpFTceqUl63AXWaAVnTgk+TysZYUOGMsBRuzid8aF+/E8b0bXM6+90jiEw==",
-      "path": "pagedlist.mvc/4.5.0",
-      "hashPath": "pagedlist.mvc.4.5.0.nupkg.sha512"
+      "sha512": "sha512-G6s6kMlQz2wINj8if0bo3zPyV93AYctjReJS17emkLTK301jjlnCWLl45S3m/we04FswOuFro2MsA8oJtvOi5g==",
+      "path": "pagedlist.mvc/4.4.0",
+      "hashPath": "pagedlist.mvc.4.4.0.nupkg.sha512"
     },
     "Swashbuckle.AspNetCore.Annotations/6.5.0": {
       "type": "package",

@@ -2,6 +2,7 @@
 using LastTodoApp.Domain.Dto;
 using LastTodoApp.Domain.Entities;
 using LastTodoApp.Domain.Entities.TaskViewModel;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -24,7 +25,7 @@ namespace LastTodoApp.Web.Repositories.Services
             _context = appDbContext;
             _userManager = userManager;
         }
-        public async System.Threading.Tasks.Task Add(Task task, string userId, string username, string email)
+        public async System.Threading.Tasks.Task Add(TaskDto task, string userId, string username, string email)
         {
             var foundUser = await _context.Users.Include(x => x.Tasks).FirstOrDefaultAsync(x => x.Email == email);
 
@@ -64,20 +65,30 @@ namespace LastTodoApp.Web.Repositories.Services
 
         public async Task<Domain.Entities.Task> GetSingleTask(int id)
         {
-            var task = await _context.Tasks.FirstOrDefaultAsync(x => x.Id == id);
+            var task = await _context.Tasks.Include(u=> u.User).FirstOrDefaultAsync(x => x.Id == id);
+
+        
+
+            if (task is null)
+            {
+                throw new BadHttpRequestException("Task not found");
+            }
             return task ?? throw new BadHttpRequestException("Task not found");
         }
 
         public async Task<List<Domain.Entities.Task>> GetAllTasks()
         {
-         
-            return await _context.Tasks.Include(t=> t.User).ToListAsync();
+
+            //return await _context.Tasks.Include(t=> t.User).ToListAsync();
+            return await _context.Tasks.Include(u=> u.User).OrderBy(t => t.Id).ToListAsync();
         }
 
-        public async System.Threading.Tasks.Task Update(int id, TaskViewModel taskViewModel, string userId, string username)
+        public async System.Threading.Tasks.Task Update(int id, TaskDto taskViewModel, string userId, string username, string email)
         {
-            var task = await _context.Tasks.FirstOrDefaultAsync(p => p.Id == id);
+            var foundUser = await _context.Users.Include(x => x.Tasks).FirstOrDefaultAsync(x => x.Email == email);
 
+            var task = await _context.Tasks.Include(u=> u.User).FirstOrDefaultAsync(p => p.Id == id);
+            
             if (task is null)
             {
                 throw new BadHttpRequestException("Task not found");
@@ -87,6 +98,18 @@ namespace LastTodoApp.Web.Repositories.Services
             task.Description = taskViewModel.Description;
             task.Status = taskViewModel.Status;
             task.DueDate = DateTime.SpecifyKind(taskViewModel.DueDate, DateTimeKind.Utc);
+            task.User.Email = email;
+
+
+            if (foundUser.Tasks is null)
+            {
+                foundUser.Tasks = new List<Task> { task };
+            }
+            else
+            {
+                foundUser.Tasks.Add(task);
+            }
+
 
             _context.Entry(task).State = EntityState.Modified;
 

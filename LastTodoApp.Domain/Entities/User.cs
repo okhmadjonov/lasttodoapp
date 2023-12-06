@@ -10,8 +10,9 @@ namespace LastTodoApp.Domain.Entities
     public class User:IdentityUser
     {
 
+       
+      
+        public List<Task> Tasks { get; set; }
 
-      public  List<Task>? Tasks { get; set; }
-     
     }
 }

@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,15 +25,16 @@ namespace LastTodoApp.DataContext.Data
         public IServiceProvider Services { get; set; }
         public DbSet<Domain.Entities.Task> Tasks { get; set; }
         public DbSet<Audit> AuditLogs { get; set; }
+        public DbSet<User> Users { get; set;}
 
 
 
 
 
-        protected override void OnModelCreating(ModelBuilder builder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(builder);
-            builder.ApplyConfiguration<IdentityRole>(new RoleConfiguration(Services));
+            base.OnModelCreating(modelBuilder);
+          
         }
         public virtual async Task<int> SaveChangesAsync(string userId, string userName)
         {

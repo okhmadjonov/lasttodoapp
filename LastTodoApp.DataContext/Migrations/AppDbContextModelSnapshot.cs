@@ -85,7 +85,6 @@ namespace LastTodoApp.DataContext.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("UserId")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -183,26 +182,6 @@ namespace LastTodoApp.DataContext.Migrations
                         .HasDatabaseName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "5d8b8310-68bc-4b26-a309-31fdc666ac6f",
-                            Name = "ADMIN",
-                            NormalizedName = "ADMIN"
-                        },
-                        new
-                        {
-                            Id = "237a0ff0-9d7c-4e0f-9926-89a1cb20f4cb",
-                            Name = "MANAGER",
-                            NormalizedName = "MANAGER"
-                        },
-                        new
-                        {
-                            Id = "a639cb7e-9711-40c3-975a-b5b7f4f4013a",
-                            Name = "USER",
-                            NormalizedName = "USER"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -314,10 +293,8 @@ namespace LastTodoApp.DataContext.Migrations
             modelBuilder.Entity("LastTodoApp.Domain.Entities.Task", b =>
                 {
                     b.HasOne("LastTodoApp.Domain.Entities.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany("Tasks")
+                        .HasForeignKey("UserId");
 
                     b.Navigation("User");
                 });
@@ -371,6 +348,11 @@ namespace LastTodoApp.DataContext.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("LastTodoApp.Domain.Entities.User", b =>
+                {
+                    b.Navigation("Tasks");
                 });
 #pragma warning restore 612, 618
         }

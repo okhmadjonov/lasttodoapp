@@ -987,7 +987,7 @@
           }
         }
       },
-      "PagedList.Mvc/4.5.0": {
+      "PagedList.Mvc/4.4.0": {
         "type": "package",
         "dependencies": {
           "PagedList": "1.17.0"
@@ -1295,7 +1295,7 @@
           "Microsoft.Extensions.Identity.Core": "7.0.0",
           "Newtonsoft.Json": "13.0.3",
           "NonFactors.Grid.Mvc6": "7.0.0",
-          "PagedList.Mvc": "4.5.0",
+          "PagedList.Mvc": "4.4.0",
           "Swashbuckle.AspNetCore.Annotations": "6.5.0",
           "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0",
           "Swashbuckle.AspNetCore.SwaggerUI": "6.5.0",
@@ -2587,17 +2587,17 @@
         "pagedlist.nuspec"
       ]
     },
-    "PagedList.Mvc/4.5.0": {
-      "sha512": "D0M4qW2g4a9cwG8ozIKUnJheCrm5GpFTceqUl63AXWaAVnTgk+TysZYUOGMsBRuzid8aF+/E8b0bXM6+90jiEw==",
+    "PagedList.Mvc/4.4.0": {
+      "sha512": "G6s6kMlQz2wINj8if0bo3zPyV93AYctjReJS17emkLTK301jjlnCWLl45S3m/we04FswOuFro2MsA8oJtvOi5g==",
       "type": "package",
-      "path": "pagedlist.mvc/4.5.0",
+      "path": "pagedlist.mvc/4.4.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Content/Content/PagedList.css",
         "lib/net40/PagedList.Mvc.XML",
         "lib/net40/PagedList.Mvc.dll",
-        "pagedlist.mvc.4.5.0.nupkg.sha512",
+        "pagedlist.mvc.4.4.0.nupkg.sha512",
         "pagedlist.mvc.nuspec"
       ]
     },
@@ -3153,7 +3153,7 @@
       "Newtonsoft.Json >= 13.0.3",
       "NonFactors.Grid.Mvc6 >= 7.0.0",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 7.0.0",
-      "PagedList.Mvc >= 4.5.0",
+      "PagedList.Mvc >= 4.4.0",
       "Swashbuckle.AspNetCore.Annotations >= 6.5.0",
       "Swashbuckle.AspNetCore.SwaggerGen >= 6.5.0",
       "Swashbuckle.AspNetCore.SwaggerUI >= 6.5.0",
@@ -3253,7 +3253,7 @@
           },
           "PagedList.Mvc": {
             "target": "Package",
-            "version": "[4.5.0, )"
+            "version": "[4.4.0, )"
           },
           "Swashbuckle.AspNetCore.Annotations": {
             "target": "Package",
@@ -3307,7 +3307,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'PagedList.Mvc 4.5.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
+      "message": "Package 'PagedList.Mvc 4.4.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
       "libraryId": "PagedList.Mvc",
       "targetGraphs": [
         "net7.0"

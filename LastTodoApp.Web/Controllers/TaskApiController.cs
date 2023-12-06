@@ -11,6 +11,7 @@ namespace LastTodoApp.Web.Controllers
   
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles ="ADMIN")]
     public class TaskApiController : ControllerBase
     {
 
@@ -30,7 +31,7 @@ namespace LastTodoApp.Web.Controllers
         public async Task<IActionResult> Index(int id) => Ok(await _taskRepository.GetSingleTask(id));
 
         [HttpPost]
-        public async Task<IActionResult> Create(Domain.Entities.Task task, string email)
+        public async Task<IActionResult> Create(Domain.Dto.TaskDto task, string email)
         {
             task.DueDate = DateTime.SpecifyKind(task.DueDate, DateTimeKind.Utc);
 
@@ -47,7 +48,7 @@ namespace LastTodoApp.Web.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Edit(int id, TaskViewModel task)
+        public async Task<IActionResult> Edit(int id, Domain.Dto.TaskDto task)
         {
             DateTime now = DateTime.Now;
             if (task.DueDate < now)
@@ -57,7 +58,8 @@ namespace LastTodoApp.Web.Controllers
             var userId = _userManager.GetUserId(User);
             var user = await _userManager.GetUserAsync(User);
             var username = user!.UserName;
-            await _taskRepository.Update(id, task, userId!, username!);
+            var email = user!.Email;
+            await _taskRepository.Update(id, task, userId!, username!, email!);
             return Ok();
         }
 
