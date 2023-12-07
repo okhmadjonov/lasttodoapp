@@ -28,25 +28,28 @@ namespace LastTodoApp.Web.Repositories.Services
             _userManager = userManager;
             _mapper = mapper;   
         }
-        public async System.Threading.Tasks.Task Add(TaskDto taskDto, string userId, string username, string email)
+        public async System.Threading.Tasks.Task Add(TaskDto task, string userId, string username, string email)
         {
-            // Map TaskDto to Task using AutoMapper
-            var task = _mapper.Map<Task>(taskDto);
-
             var foundUser = await _context.Users.Include(x => x.Tasks).FirstOrDefaultAsync(x => x.Email == email);
-
+            var tasknew = new Task
+            {
+                Title = task.Title,
+                Description = task.Description,
+                Status = task.Status,
+                DueDate = DateTime.SpecifyKind(task.DueDate, DateTimeKind.Utc),
+                UserEmail= task.UserEmail,
+            };
             if (foundUser.Tasks is null)
             {
-                foundUser.Tasks = new List<Task> { task };
+                foundUser.Tasks = new List<Task> { tasknew };
             }
             else
             {
-                foundUser.Tasks.Add(task);
+                foundUser.Tasks.Add(tasknew);
             }
-
+            _context.Tasks.Add(tasknew);
             await _context.SaveChangesAsync(userId, username);
         }
-
 
         public async System.Threading.Tasks.Task Delete(int id, string userId, string username)
         {
@@ -91,12 +94,16 @@ namespace LastTodoApp.Web.Repositories.Services
                 throw new BadHttpRequestException("Task not found");
             }
 
-            // Map properties from TaskDto to Task using AutoMapper
-            _mapper.Map(taskDto, task);
+            // Update task properties
+            task.Title = taskDto.Title;
+            task.Description = taskDto.Description;
+            task.Status = taskDto.Status;
+            task.DueDate = DateTime.SpecifyKind(taskDto.DueDate, DateTimeKind.Utc);
+            task.UserEmail = taskDto.UserEmail;
 
+           
             await _context.SaveChangesAsync();
         }
-
 
 
 
