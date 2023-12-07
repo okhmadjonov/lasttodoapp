@@ -1,4 +1,6 @@
 ﻿@model LastTodoApp.Domain.Dto.TaskDto
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Mvc.Rendering
 
 @{
     ViewData["title"] = "Edit Task";
@@ -52,16 +54,28 @@
 
                 <!-- User's Email field -->
                 <div class="form-group">
-                    <label for="User.Email" class="control-label">User's Email:</label>
+                    <label for="UserEmail" class="control-label"></label>
                     @{
-                        var users = ViewBag.Users as SelectList ?? new SelectList(new List<LastTodoApp.Domain.Entities.User>(), "Email", "Email");
+                        SelectList users = null;
+
+                        if (User.Identity != null && User.Identity.IsAuthenticated && (!User.IsInRole("MANAGER") || !User.IsInRole("ADMIN")))
+                        {
+                            var userManager = Context.RequestServices.GetRequiredService<UserManager<LastTodoApp.Domain.Entities.User>>();
+
+                            var allUsers = userManager.Users.ToList();  // Fetch all users from the database
+
+                            // Filter users on the client side based on the "USER" role
+                            var usersWithUserRole = allUsers.Where(u => userManager.IsInRoleAsync(u, "USER").Result).ToList();
+
+                            users = new SelectList(usersWithUserRole, "Email", "Email");
+                        }
                     }
+
                     <select asp-for="UserEmail" class="form-control" asp-items="@users" required>
                         <option value="">Select a user</option>
                     </select>
                     <span asp-validation-for="UserEmail" class="text-danger"></span>
                 </div>
-
 
                 <br />
                 <div class="form-group">

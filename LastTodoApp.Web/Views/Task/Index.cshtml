@@ -79,7 +79,7 @@
                                         <td>@task.Description</td>
                                         <td>@task.DueDate</td>
                                         <td>@task.Status</td>
-                                        <td>@task.User?.Email</td>
+                                        <td>@task.UserEmail</td>
 
                                         @if (User.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("ADMIN"))
                                         {

@@ -38,9 +38,7 @@ namespace LastTodoApp.Web.Controllers
                 tasks = tasks.Where(t => t.User?.Email == searchEmail).ToList();
             }
 
-            // Order tasks by Id
-            //tasks = tasks.OrderBy(t => t.Id).ToList();
-
+          
             var pageNumber = page ?? 1;
             var paginatedTasks = tasks.ToPagedList(pageNumber, pageSize);
 
@@ -76,59 +74,70 @@ namespace LastTodoApp.Web.Controllers
 
 
 
-
-        // Update task
-        [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
             var task = await _taskRepository.GetSingleTask(id);
-            var users = await _userManager.Users.ToListAsync();
-            ViewBag.Users = new SelectList(users, "Email", "Email");
-
 
             if (task == null)
             {
                 return NotFound();
             }
 
-          
+            var users = await _userManager.Users.ToListAsync();
+            ViewBag.Users = new SelectList(users, "Email", "Email");
+
             var taskDto = new Domain.Dto.TaskDto
             {
-              
                 Title = task.Title,
                 Description = task.Description,
                 DueDate = task.DueDate,
                 Status = task.Status,
-                UserEmail = task.User?.Email,
-                
+                UserEmail = task.UserEmail,
             };
 
             return View(taskDto);
         }
+
         [HttpPost]
-         public async Task<IActionResult> Edit(int id, Domain.Dto.TaskDto task)
+        public async Task<IActionResult> Edit(int id, Domain.Dto.TaskDto taskDto)
         {
             if (!ModelState.IsValid)
             {
-                return View(task);
+                var users = await _userManager.Users.ToListAsync();
+                ViewBag.Users = new SelectList(users, "Email", "Email");
+
+                return View(taskDto);
             }
 
-            // Retrieve the selected user by email
-            var user = await _userManager.FindByEmailAsync(task.UserEmail);
-
-            if (user == null)
+            try
             {
-                TempData["Error"] = "User with the specified email does not exist.";
-                return View(task);
+                var task = await _taskRepository.GetSingleTask(id);
+
+                if (task == null)
+                {
+                    return NotFound();
+                }
+
+                var user = await _userManager.FindByEmailAsync(task.UserEmail);
+
+                if (user == null)
+                {
+                    TempData["Error"] = "User with the specified email does not exist.";
+                    return View(task);
+                }
+
+                await _taskRepository.Update(id, taskDto, user.Id, user.UserName, taskDto.UserEmail);
+
+                return RedirectToAction("Index");
             }
-            
-            var userId = user.Id;
-            var username = user.UserName;
-            await _taskRepository.Update(id, task, userId, username, user.Email);
-
-            return RedirectToAction("Index");
-
+            catch (Exception ex)
+            {
+                TempData["Error"] = $"An error occurred: {ex.Message}";
+                return View(taskDto);
+            }
         }
+
+
 
 
         // Delete task

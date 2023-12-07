@@ -84,6 +84,10 @@ namespace LastTodoApp.DataContext.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("UserEmail")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("UserId")
                         .HasColumnType("text");
 

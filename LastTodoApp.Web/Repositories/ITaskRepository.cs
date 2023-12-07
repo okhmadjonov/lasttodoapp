@@ -11,7 +11,7 @@ namespace LastTodoApp.Web.Repositories
         Task<List<Domain.Entities.Task>> GetAllTasks();
         Task<Domain.Entities.Task> GetSingleTask(int id);
         Task Add(Domain.Dto.TaskDto task, string userId, string username, string email);
-        Task Update(int id, Domain.Dto.TaskDto  taskViewModel, string userId, string username, string email);
+        Task Update(int id, Domain.Dto.TaskDto  taskDto, string userId, string username, string email);
         Task Delete(int id, string userId, string username);
 
     }

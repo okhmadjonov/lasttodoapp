@@ -17,6 +17,6 @@ namespace LastTodoApp.Domain.Dto
         public Status Status { get; set; }
 
         public string UserEmail { get; set; }
-       
+
     }
 }

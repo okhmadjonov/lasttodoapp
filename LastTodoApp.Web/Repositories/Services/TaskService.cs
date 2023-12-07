@@ -36,7 +36,8 @@ namespace LastTodoApp.Web.Repositories.Services
                 Title = task.Title,
                 Description = task.Description,
                 Status = task.Status,
-                DueDate = DateTime.SpecifyKind(task.DueDate, DateTimeKind.Utc)
+                DueDate = DateTime.SpecifyKind(task.DueDate, DateTimeKind.Utc),
+                UserEmail= task.UserEmail,
             };
 
 
@@ -48,6 +49,9 @@ namespace LastTodoApp.Web.Repositories.Services
             {
                 foundUser.Tasks.Add(tasknew);
             }
+
+         
+
 
             _context.Tasks.Add(tasknew);
             await _context.SaveChangesAsync(userId, username);
@@ -79,41 +83,45 @@ namespace LastTodoApp.Web.Repositories.Services
         public async Task<List<Domain.Entities.Task>> GetAllTasks()
         {
 
-            //return await _context.Tasks.Include(t=> t.User).ToListAsync();
+           
             return await _context.Tasks.Include(u=> u.User).OrderBy(t => t.Id).ToListAsync();
         }
 
-        public async System.Threading.Tasks.Task Update(int id, TaskDto taskViewModel, string userId, string username, string email)
-        {
-            var foundUser = await _context.Users.Include(x => x.Tasks).FirstOrDefaultAsync(x => x.Email == email);
 
-            var task = await _context.Tasks.Include(u=> u.User).FirstOrDefaultAsync(p => p.Id == id);
-            
-            if (task is null)
+        public async System.Threading.Tasks.Task Update(int id, Domain.Dto.TaskDto taskDto, string userId, string username, string newEmail)
+        {
+            var task = await _context.Tasks.Include(t => t.User).FirstOrDefaultAsync(t => t.Id == id);
+
+            if (task == null)
             {
                 throw new BadHttpRequestException("Task not found");
             }
 
-            task.Title = taskViewModel.Title;
-            task.Description = taskViewModel.Description;
-            task.Status = taskViewModel.Status;
-            task.DueDate = DateTime.SpecifyKind(taskViewModel.DueDate, DateTimeKind.Utc);
-            task.User.Email = email;
+            // Update task properties
+            task.Title = taskDto.Title;
+            task.Description = taskDto.Description;
+            task.Status = taskDto.Status;
+            task.DueDate = DateTime.SpecifyKind(taskDto.DueDate, DateTimeKind.Utc);
+            task.UserEmail = taskDto.UserEmail;
 
+            // If the email is updated, update it in the user entity associated with the task
+            //if (!string.IsNullOrEmpty(newEmail) && !string.Equals(task.User.Email, newEmail, StringComparison.OrdinalIgnoreCase))
+            //{
+            //    task.User.Email = newEmail;
 
-            if (foundUser.Tasks is null)
-            {
-                foundUser.Tasks = new List<Task> { task };
-            }
-            else
-            {
-                foundUser.Tasks.Add(task);
-            }
+            //    // Normalize the new email before updating
+            //    var normalizedEmail = _userManager.NormalizeEmail(newEmail);
+            //    task.User.NormalizedEmail = normalizedEmail;
 
+            //    // Save changes for the user separately
+            //    await _context.SaveChangesAsync();
+            //}
 
-            _context.Entry(task).State = EntityState.Modified;
-
-            await _context.SaveChangesAsync(userId, username);
+            // Save changes to the task
+            await _context.SaveChangesAsync();
         }
+
+
+
     }
 }
