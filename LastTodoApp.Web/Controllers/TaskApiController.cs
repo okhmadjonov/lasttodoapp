@@ -25,12 +25,14 @@ namespace LastTodoApp.Web.Controllers
 
 
         [HttpGet]
+        [Authorize(Roles = "ADMIN")]
         public async Task<IActionResult> Index() => Ok(await _taskRepository.GetAllTasks());
 
         [HttpGet("id")]
         public async Task<IActionResult> Index(int id) => Ok(await _taskRepository.GetSingleTask(id));
 
         [HttpPost]
+        [Authorize(Roles = "ADMIN")]
         public async Task<IActionResult> Create(Domain.Dto.TaskDto task, string email)
         {
             task.DueDate = DateTime.SpecifyKind(task.DueDate, DateTimeKind.Utc);
@@ -48,6 +50,7 @@ namespace LastTodoApp.Web.Controllers
         }
 
         [HttpPut]
+        [Authorize(Roles = "ADMIN")]
         public async Task<IActionResult> Edit(int id, Domain.Dto.TaskDto task)
         {
             DateTime now = DateTime.Now;
@@ -64,6 +67,7 @@ namespace LastTodoApp.Web.Controllers
         }
 
         [HttpDelete]
+        [Authorize(Roles = "ADMIN")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var userId = _userManager.GetUserId(User);

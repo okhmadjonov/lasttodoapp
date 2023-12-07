@@ -46,7 +46,7 @@ namespace LastTodoApp.Web.Controllers
         }
 
         [HttpGet]
-       
+        [Authorize(Roles = "ADMIN, MANAGER")]
         public async Task<ViewResult> Add()
         {
             var users = await _userManager.Users.ToListAsync();
@@ -62,6 +62,7 @@ namespace LastTodoApp.Web.Controllers
 
 
         [HttpPost]
+        [Authorize(Roles = "ADMIN,  MANAGER")]
         public async Task<IActionResult> Add(Domain.Dto.TaskDto taskDto)
         {
           
@@ -74,6 +75,7 @@ namespace LastTodoApp.Web.Controllers
 
 
 
+        [Authorize(Roles = "ADMIN")]
         public async Task<IActionResult> Edit(int id)
         {
             var task = await _taskRepository.GetSingleTask(id);
@@ -99,6 +101,7 @@ namespace LastTodoApp.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "ADMIN")]
         public async Task<IActionResult> Edit(int id, Domain.Dto.TaskDto taskDto)
         {
             if (!ModelState.IsValid)
@@ -142,6 +145,7 @@ namespace LastTodoApp.Web.Controllers
 
         // Delete task
         [HttpGet]
+        [Authorize(Roles = "ADMIN")]
         public async Task<IActionResult> Delete(int id)
         {
             var task = await _taskRepository.GetSingleTask(id);
@@ -155,6 +159,7 @@ namespace LastTodoApp.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "ADMIN")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var userId = _userManager.GetUserId(User);
