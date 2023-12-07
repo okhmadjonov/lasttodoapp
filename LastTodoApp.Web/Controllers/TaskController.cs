@@ -54,22 +54,28 @@ namespace LastTodoApp.Web.Controllers
 
             var taskDto = new Domain.Dto.TaskDto()
             {
-                DueDate = DateTime.Now 
+                DueDate = DateTime.Now
             };
 
             return View(taskDto);
         }
 
-
         [HttpPost]
-        [Authorize(Roles = "ADMIN,  MANAGER")]
+        [Authorize(Roles = "ADMIN, MANAGER")]
         public async Task<IActionResult> Add(Domain.Dto.TaskDto taskDto)
         {
-          
             var user = await _userManager.FindByEmailAsync(taskDto.UserEmail);
+
+            if (user == null)
+            {
+                return NotFound($"User with email '{taskDto.UserEmail}' not found.");
+            }
+
             var userId = user.Id;
             var username = user.UserName;
+
             await _taskRepository.Add(taskDto, userId, username, taskDto.UserEmail);
+
             return RedirectToAction("Index");
         }
 

@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LastTodoApp.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+22617115bf138dc75396e0ef5b4753f5d60458d7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4ee7ce03e679385c060af72c5e272294211263ca")]
 [assembly: System.Reflection.AssemblyProductAttribute("LastTodoApp.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LastTodoApp.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
