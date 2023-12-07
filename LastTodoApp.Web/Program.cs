@@ -1,6 +1,7 @@
 using LastTodoApp.DataContext.Data;
 using LastTodoApp.DataContext.Services;
 using LastTodoApp.Domain.Entities;
+using LastTodoApp.Web.Configuration;
 using LastTodoApp.Web.Repositories;
 using LastTodoApp.Web.Repositories.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -15,22 +16,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllersWithViews();
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddControllers().AddNewtonsoftJson(options =>
-    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
-);
 
-builder.Services.AddSwaggerGen(c =>
-{
-    c.SwaggerDoc("v1", new OpenApiInfo
-    {
-        Title = "Todo API",
-        Version = "v1"
-    });
-});
-
+builder.Services
+    .AddDefaultControllers()
+    .AddSwaggerGen()
+    .AddIdentity()
+    .AddServicesAndRepositories()
+    .AddAuthAndAuthorize();
 
 var configuration = new ConfigurationBuilder()
     .SetBasePath(builder.Environment.ContentRootPath)
@@ -39,45 +31,7 @@ var configuration = new ConfigurationBuilder()
 
 var connectionString = configuration.GetConnectionString("DefaultConnection");
 
-builder.Services.AddIdentity<User, IdentityRole>(options =>
-{
-    options.Password.RequireLowercase = false;
-    options.Password.RequireUppercase = false;
-    options.Password.RequireNonAlphanumeric = false;
-    options.Password.RequireDigit = false;
-    options.SignIn.RequireConfirmedAccount = false;
-})
-    .AddRoles<IdentityRole>()
-    .AddEntityFrameworkStores<AppDbContext>()
-    .AddDefaultTokenProviders();
-
-
-builder.Services.AddDbContext<AppDbContext>(options =>
-{
-    options.UseNpgsql(connectionString);
-    options.EnableSensitiveDataLogging();
-});
-
-builder.Services.AddScoped<AccountService>();
-builder.Services.AddScoped<ITaskRepository, TaskService>();
-builder.Services.AddScoped<AuditService>();
-
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-    .AddCookie(options =>
-    {
-        options.LoginPath = "/Account/Login";
-        options.AccessDeniedPath = "/Account/AccessDenied";
-      
-    });
-
-builder.Services.AddAuthorization(options =>
-{
-    options.AddPolicy("AdminPolicy", policy => policy.RequireRole("ADMIN"));
-    options.AddPolicy("ManagerPolicy", policy => policy.RequireRole("MANAGER"));
-    options.AddPolicy("UserPolicy", policy => policy.RequireRole("USER"));
-});
-
-
+builder.Services.AddDbContext(connectionString);
 
 var app = builder.Build();
 
@@ -86,9 +40,6 @@ using (var serviceScope = app.Services.CreateScope())
     await Seed.SeedUsersAndRolesAsync(serviceScope.ServiceProvider);
 }
 
-
-
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -96,28 +47,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.Use(async (context, next) =>
-{
-    if (context.Request.Path.StartsWithSegments("/swagger"))
-    {
-        if (context.User.Identity.IsAuthenticated)
-        {
-            if (!context.User.IsInRole("ADMIN"))
-            {
-                context.Response.StatusCode = 403;
-                return;
-            }
-        }
-        else
-        {
-            context.Response.Redirect("/Account/Login");
-            return;
-        }
-    }
-    await next.Invoke();
-});
-
-
+app.UseMiddleware<SwaggerAuthorizationMiddleware>();
 app.UseSwagger();
 app.UseSwaggerUI();
 app.UseHttpsRedirection();

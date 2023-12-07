@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "zJe7x7GfsZx8UVS1oekNgEUWLAtKMp4+qUuh1sAug4WUIm89kk0OnnxRedIvJ5OyhDdG3+5rVVMAOTLEh+gSlQ==",
+  "dgSpecHash": "J55iZecUT8+O3LNzsnfXBCfShtx7kSU11rueMtFm6zBNvvDjYqE1mCxYnVAX7oXkBc/92Sdzp1yr6DQxRZhwkA==",
   "success": true,
   "projectFilePath": "C:\\Users\\nemo\\Desktop\\LastTodoApp\\LastTodoApp.Web\\LastTodoApp.Web.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\nemo\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\nemo\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\nemo\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\nemo\\.nuget\\packages\\jetbrains.annotations\\2022.3.1\\jetbrains.annotations.2022.3.1.nupkg.sha512",
     "C:\\Users\\nemo\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",

@@ -104,20 +104,7 @@ namespace LastTodoApp.Web.Repositories.Services
             task.DueDate = DateTime.SpecifyKind(taskDto.DueDate, DateTimeKind.Utc);
             task.UserEmail = taskDto.UserEmail;
 
-            // If the email is updated, update it in the user entity associated with the task
-            //if (!string.IsNullOrEmpty(newEmail) && !string.Equals(task.User.Email, newEmail, StringComparison.OrdinalIgnoreCase))
-            //{
-            //    task.User.Email = newEmail;
-
-            //    // Normalize the new email before updating
-            //    var normalizedEmail = _userManager.NormalizeEmail(newEmail);
-            //    task.User.NormalizedEmail = normalizedEmail;
-
-            //    // Save changes for the user separately
-            //    await _context.SaveChangesAsync();
-            //}
-
-            // Save changes to the task
+           
             await _context.SaveChangesAsync();
         }
 
