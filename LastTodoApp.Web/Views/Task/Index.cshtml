@@ -84,8 +84,8 @@
                                         @if (User.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("ADMIN"))
                                         {
                                             <td>
-                                                <a href="@Url.Action("Edit", new { id = task.Id })" class="btn btn-warning">Update</a>
-                                                <a href="@Url.Action("Delete", new { id = task.Id })" class="btn btn-danger">Delete</a>
+                                                <a href="@Url.Action("Edit", new { id = task.Id })" class="btn btn-warning"><i class="fa fa-pen"></i></a>
+                                                <a href="@Url.Action("Delete", new { id = task.Id })" class="btn btn-danger"> <i class="fa fa-trash"></i></a>
                                             </td>
                                         }
                                     </tr>
